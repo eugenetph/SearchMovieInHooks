@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Modal, Button } from 'antd';
 
-import { MovieConsumer } from '../context/MovieContext'
+import MovieContext from '../context/MovieContext'
 
 const LikedModal = ({ isLikeModalVisible, setIsLikeModalVisible }) => {
+
+  const context = useContext(MovieContext)
 
   const handleOk = e => {
     setIsLikeModalVisible(false)
@@ -14,8 +16,6 @@ const LikedModal = ({ isLikeModalVisible, setIsLikeModalVisible }) => {
   };
 
   return (
-    <MovieConsumer>
-      {({ state }) => (
         <Modal
           title="Liked Movies"
           visible={isLikeModalVisible}
@@ -24,13 +24,11 @@ const LikedModal = ({ isLikeModalVisible, setIsLikeModalVisible }) => {
           footer={[
             <Button key="Ok" onClick={handleOk}>
               Ok
-          </Button>,
+          </Button>
           ]}
         >
-          {state.map((name, index) => <p key={index}>{name}</p>)}
-        </Modal>)
-      }
-    </MovieConsumer>
+          {context.state.map((name, index) => <p key={index}>{name}</p>)}
+        </Modal>
   )
 }
 
