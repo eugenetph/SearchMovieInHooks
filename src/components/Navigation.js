@@ -17,7 +17,6 @@ const Navigation = ({ pageNumber, maxPageNumber, setPageNumber }) => {
   }
 
   const next = () => {
-    debugger
     const pageNum = pageNumber < maxPageNumber ? pageNumber + 1 : pageNumber 
     setPageNumber(pageNum)
   }

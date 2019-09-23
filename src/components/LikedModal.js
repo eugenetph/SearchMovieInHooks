@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal } from 'antd';
+import { Modal, Button } from 'antd';
 
 import { MovieConsumer } from '../context/MovieContext'
 
@@ -16,17 +16,19 @@ const LikedModal = ({ isLikeModalVisible, setIsLikeModalVisible }) => {
   return (
     <MovieConsumer>
       {({ state }) => (
-      <Modal
-        title="Basic Modal"
-        visible={isLikeModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        {console.log('test', state)}
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>)
+        <Modal
+          title="Liked Movies"
+          visible={isLikeModalVisible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+          footer={[
+            <Button key="Ok" onClick={handleOk}>
+              Ok
+          </Button>,
+          ]}
+        >
+          {state.map((name, index) => <p key={index}>{name}</p>)}
+        </Modal>)
       }
     </MovieConsumer>
   )

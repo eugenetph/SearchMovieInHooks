@@ -12,20 +12,12 @@ code {
     monospace;
 }
 
-.nav-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 18px;
-}
-button {
-  background-color: gray;
-  color: #fff;
-  padding: 20px;
-  font-size: 15px;
-  border-radius: 0;
-}
-.disabled {
-  background: lightgray;
-}
+/* .movie-container {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 5px;
+  margin-bottom: 50px;
+  min-height: 400px;
+} */
